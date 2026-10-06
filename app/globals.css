@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #f6f7f6;
+  background-image: radial-gradient(70% 36% at 50% 0%, rgba(16, 185, 129, 0.12), transparent 70%);
+  background-attachment: fixed;
+  color: #0f172a;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+ * These must live in @layer base. Unlayered rules outrank every layered one,
+ * so an unlayered `a { color }` or `button { font }` silently beats Tailwind's
+ * own text-colour and font utilities everywhere they are used.
+ */
+@layer base {
+  a {
+    text-decoration: none;
+  }
+}
+
+/* The format rail keeps its own scrollbar discreet against the dark panel. */
+.rail-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.rail-scroll::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.35);
+  border-radius: 999px;
+}
+
+.rail-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
